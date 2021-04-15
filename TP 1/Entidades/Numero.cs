@@ -26,6 +26,12 @@ namespace Entidades
         #endregion
 
         #region METODOS
+        /// <summary>
+        /// Valida que la string pasada contenga únicamente caracteres numéricos y retorna
+        /// un double con el valor. En caso contrario, retorna 0
+        /// </summary>
+        /// <param name="strNumero"></param>
+        /// <returns></returns>
         private double ValidarNumero(string strNumero)
         {
             double numero;
@@ -39,6 +45,9 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Propiedad para asignar un valor numérico dentro de una string al campo numero
+        /// </summary>
         public string SetNumero
         {
             set
@@ -47,6 +56,12 @@ namespace Entidades
             }
         }
         
+        /// <summary>
+        ///  Verifica que una string contenga únicamente los caracteres '0' y '1'. Retorna true
+        ///  en caso de verificar, false en caso contrario.
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns></returns>
         private bool EsBinario(string binario)
         {
             foreach(char letra in binario) {
@@ -58,6 +73,12 @@ namespace Entidades
             return true;
         }
 
+        /// <summary>
+        /// Toma una string. Tras validar si la string contiene un número binario, convierte el mismo
+        /// a base 10 y retorna una string con el valor decimal.
+        /// </summary>
+        /// <param name="binario"></param>
+        /// <returns></returns>
         public string BinarioDecimal(string binario)
         {
             if (EsBinario(binario))
@@ -73,6 +94,11 @@ namespace Entidades
             return "Valor inválido";
         }
 
+        /// <summary>
+        /// Recibe un número y crea una string con su conversión a base 2. Retorna la string.
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
         public string DecimalBinario(double numero)
         {
             string numBinario = "";
@@ -86,6 +112,14 @@ namespace Entidades
             return numBinario;
         }
 
+        /// <summary>
+        /// Recibe una string. Si puede ser parseada a un número, el mismo es convertido
+        /// a binario, llamando al método DecimalBinario(double numero). Retorna la string
+        /// con el número binario que devuelva el método.
+        /// En caso de que la string no pueda ser parseada, retorna "Valor inválido"
+        /// </summary>
+        /// <param name="numero"></param>
+        /// <returns></returns>
         public string DecimalBinario(string numero)
         {
             double num;
@@ -93,7 +127,7 @@ namespace Entidades
             {
                 return DecimalBinario(num);
             }
-            return "Ingreso invalido";
+            return "Valor inválido";
         }
         #endregion
 
