@@ -21,10 +21,11 @@ namespace Entidades
         }
         public Numero(string strNumero)
         {
-            this.numero = ValidarNumero(strNumero);
+            this.SetNumero = strNumero;
         }
         #endregion
 
+        #region METODOS
         private double ValidarNumero(string strNumero)
         {
             double numero;
@@ -35,6 +36,14 @@ namespace Entidades
             else
             {
                 return 0;
+            }
+        }
+
+        public string SetNumero
+        {
+            set
+            {
+                this.numero = ValidarNumero(value);
             }
         }
         
@@ -63,5 +72,55 @@ namespace Entidades
             }
             return "Valor inválido";
         }
+
+        public string DecimalBinario(double numero)
+        {
+            string numBinario = "";
+            double num = numero;
+            while (num >= 1)
+            {
+                double resto = num % 2;
+                num = Math.Floor(num / 2);
+                numBinario = resto.ToString() + numBinario;
+            }
+            return numBinario;
+        }
+
+        public string DecimalBinario(string numero)
+        {
+            double num;
+            if (double.TryParse(numero, out num))
+            {
+                return DecimalBinario(num);
+            }
+            return "Ingreso invalido";
+        }
+        #endregion
+
+        #region OPERADORES
+        public static double operator +(Numero n1, Numero n2)
+        {
+            return n1.numero + n2.numero;
+        }
+
+        public static double operator -(Numero n1, Numero n2)
+        {
+            return n1.numero - n2.numero;
+        }
+
+        public static double operator *(Numero n1, Numero n2)
+        {
+            return n1.numero * n2.numero;
+        }
+
+        public static double operator /(Numero n1, Numero n2)
+        {
+            if (n2.numero == 0)
+            {
+                return double.MinValue;
+            }
+            return n1.numero / n2.numero;
+        }
+        #endregion
     }
 }
