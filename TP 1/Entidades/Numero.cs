@@ -81,6 +81,12 @@ namespace Entidades
         /// <returns></returns>
         public string BinarioDecimal(string binario)
         {
+            string signo = "";
+            if (binario[0] == '-')
+            {
+                signo = "-";
+                binario = binario.Substring(1);
+            }
             if (EsBinario(binario))
             {
                 int numDecimal = 0;
@@ -89,7 +95,7 @@ namespace Entidades
                     int digito = Int32.Parse( binario[binario.Length - (i + 1)].ToString() ) * (int) Math.Pow( 2, i);
                     numDecimal += digito;
                 }
-                return numDecimal.ToString();
+                return signo + numDecimal.ToString();
             }
             return "Valor inválido";
         }
@@ -102,14 +108,19 @@ namespace Entidades
         public string DecimalBinario(double numero)
         {
             string numBinario = "";
-            double num = numero;
-            while (num >= 1)
+            string signo = "";
+            if (numero < 0)
             {
-                double resto = num % 2;
-                num = Math.Floor(num / 2);
+                signo = "-";
+                numero = Math.Abs(numero);
+            }
+            while (numero >= 1)
+            {
+                double resto = numero % 2;
+                numero = Math.Floor(numero / 2);
                 numBinario = resto.ToString() + numBinario;
             }
-            return numBinario;
+            return signo + numBinario;
         }
 
         /// <summary>
