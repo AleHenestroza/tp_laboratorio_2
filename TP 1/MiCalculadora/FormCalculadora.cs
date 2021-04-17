@@ -59,7 +59,7 @@ namespace MiCalculadora
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
-            this.Limpiar();
+            Limpiar();
         }
 
         private void btnOperar_Click(object sender, EventArgs e)
