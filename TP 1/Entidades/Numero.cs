@@ -81,23 +81,29 @@ namespace Entidades
         /// <returns></returns>
         public string BinarioDecimal(string binario)
         {
-            string signo = "";
-            if (binario[0] == '-')
-            {
-                signo = "-";
-                binario = binario.Substring(1);
+            string retorno = "";
+            if (binario.Equals("")) 
+            { 
+                retorno = "Valor inválido";
             }
-            if (EsBinario(binario))
+            else
             {
-                int numDecimal = 0;
-                for(int i = 0; i < binario.Length; i++)
+                if (binario[0] == '-')
                 {
-                    int digito = Int32.Parse( binario[binario.Length - (i + 1)].ToString() ) * (int) Math.Pow( 2, i);
-                    numDecimal += digito;
+                    binario = binario.Substring(1);
                 }
-                return signo + numDecimal.ToString();
+                if (EsBinario(binario))
+                {
+                    int numDecimal = 0;
+                    for(int i = 0; i < binario.Length; i++)
+                    {
+                        int digito = Int32.Parse( binario[binario.Length - (i + 1)].ToString() ) * (int) Math.Pow( 2, i);
+                        numDecimal += digito;
+                    }
+                    retorno = numDecimal.ToString();
+                }
             }
-            return "Valor inválido";
+            return retorno;
         }
 
         /// <summary>
@@ -108,19 +114,18 @@ namespace Entidades
         public string DecimalBinario(double numero)
         {
             string numBinario = "";
-            string signo = "";
-            if (numero < 0)
+            int numeroEntero = (int) numero;
+            if (numeroEntero < 0)
             {
-                signo = "-";
-                numero = Math.Abs(numero);
+                numeroEntero = Math.Abs(numeroEntero);
             }
             while (numero >= 1)
             {
-                double resto = numero % 2;
-                numero = Math.Floor(numero / 2);
+                int resto = numeroEntero % 2;
+                numeroEntero = (int) Math.Floor(numeroEntero / 2d);
                 numBinario = resto.ToString() + numBinario;
             }
-            return signo + numBinario;
+            return numBinario;
         }
 
         /// <summary>

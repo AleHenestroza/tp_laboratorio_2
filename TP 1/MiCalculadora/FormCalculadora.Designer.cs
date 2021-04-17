@@ -42,7 +42,7 @@
             // txtNumero1
             // 
             this.txtNumero1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero1.Location = new System.Drawing.Point(15, 15);
+            this.txtNumero1.Location = new System.Drawing.Point(15, 54);
             this.txtNumero1.Name = "txtNumero1";
             this.txtNumero1.Size = new System.Drawing.Size(110, 29);
             this.txtNumero1.TabIndex = 0;
@@ -56,7 +56,7 @@
             "-",
             "*",
             "/"});
-            this.cmbOperador.Location = new System.Drawing.Point(145, 15);
+            this.cmbOperador.Location = new System.Drawing.Point(145, 54);
             this.cmbOperador.MaxDropDownItems = 4;
             this.cmbOperador.Name = "cmbOperador";
             this.cmbOperador.Size = new System.Drawing.Size(50, 31);
@@ -65,7 +65,7 @@
             // txtNumero2
             // 
             this.txtNumero2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumero2.Location = new System.Drawing.Point(215, 15);
+            this.txtNumero2.Location = new System.Drawing.Point(215, 54);
             this.txtNumero2.Name = "txtNumero2";
             this.txtNumero2.Size = new System.Drawing.Size(110, 29);
             this.txtNumero2.TabIndex = 2;
@@ -75,8 +75,9 @@
             this.lblResultado.AutoSize = true;
             this.lblResultado.BackColor = System.Drawing.SystemColors.Control;
             this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado.Location = new System.Drawing.Point(15, 61);
+            this.lblResultado.Location = new System.Drawing.Point(262, 15);
             this.lblResultado.Name = "lblResultado";
+            this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.lblResultado.Size = new System.Drawing.Size(68, 24);
             this.lblResultado.TabIndex = 3;
             this.lblResultado.Text = "LABEL";
