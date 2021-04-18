@@ -72,15 +72,15 @@
             // 
             // lblResultado
             // 
-            this.lblResultado.AutoSize = true;
             this.lblResultado.BackColor = System.Drawing.SystemColors.Control;
-            this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResultado.Location = new System.Drawing.Point(262, 15);
+            this.lblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResultado.Location = new System.Drawing.Point(145, 15);
             this.lblResultado.Name = "lblResultado";
             this.lblResultado.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblResultado.Size = new System.Drawing.Size(68, 24);
+            this.lblResultado.Size = new System.Drawing.Size(185, 24);
             this.lblResultado.TabIndex = 3;
             this.lblResultado.Text = "LABEL";
+            this.lblResultado.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // btnOperar
             // 

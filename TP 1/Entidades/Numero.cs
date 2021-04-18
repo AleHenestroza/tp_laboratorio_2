@@ -64,8 +64,8 @@ namespace Entidades
         /// <returns></returns>
         private bool EsBinario(string binario)
         {
-            foreach(char letra in binario) {
-                if (letra != '0' && letra != '1')
+            foreach(char digito in binario) {
+                if (digito != '0' && digito != '1')
                 {
                     return false;
                 }
@@ -81,29 +81,28 @@ namespace Entidades
         /// <returns></returns>
         public string BinarioDecimal(string binario)
         {
-            string retorno = "";
-            if (binario.Equals("")) 
-            { 
-                retorno = "Valor inválido";
-            }
-            else
+            string numDecimal = "Valor inválido";
+            if(binario.Equals(""))
             {
-                if (binario[0] == '-')
-                {
-                    binario = binario.Substring(1);
-                }
-                if (EsBinario(binario))
-                {
-                    int numDecimal = 0;
-                    for(int i = 0; i < binario.Length; i++)
-                    {
-                        int digito = Int32.Parse( binario[binario.Length - (i + 1)].ToString() ) * (int) Math.Pow( 2, i);
-                        numDecimal += digito;
-                    }
-                    retorno = numDecimal.ToString();
-                }
+                return numDecimal;
             }
-            return retorno;
+            if(binario[0] == '-')
+            {
+                binario = binario.Substring(1);
+            }
+            if(EsBinario(binario))
+            {
+                int digitoBinarioADecimal = 0;
+                int contadorDigitos = 0;
+                for (int i = binario.Length - 1; i >= 0; i--)
+                {
+                    int digitoBinario = int.Parse(binario[i].ToString());
+                    digitoBinarioADecimal += digitoBinario * (int)Math.Pow(2, contadorDigitos);
+                    contadorDigitos++;
+                }
+                numDecimal = digitoBinarioADecimal.ToString();
+            }
+            return numDecimal;
         }
 
         /// <summary>
@@ -114,16 +113,23 @@ namespace Entidades
         public string DecimalBinario(double numero)
         {
             string numBinario = "";
-            int numeroEntero = (int) numero;
-            if (numeroEntero < 0)
+            if (numero > int.MaxValue || numero < int.MinValue)
             {
-                numeroEntero = Math.Abs(numeroEntero);
+                numBinario = "Valor inválido";
             }
-            while (numero >= 1)
+            else
             {
-                int resto = numeroEntero % 2;
-                numeroEntero = (int) Math.Floor(numeroEntero / 2d);
-                numBinario = resto.ToString() + numBinario;
+                int numeroEntero = (int) numero;
+                if (numeroEntero < 0)
+                {
+                    numeroEntero = Math.Abs(numeroEntero);
+                }
+                while (numeroEntero >= 1)
+                {
+                    int resto = numeroEntero % 2;
+                    numeroEntero = (int) Math.Floor(numeroEntero / 2d);
+                    numBinario = resto.ToString() + numBinario;
+                }
             }
             return numBinario;
         }
