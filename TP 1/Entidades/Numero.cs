@@ -120,6 +120,13 @@ namespace Entidades
             else
             {
                 int numeroEntero = (int) Math.Abs(numero);
+                if (numeroEntero == 0)
+                {
+                    // En caso de que el número sea menor a 1, el while siguiente no se ejecutaría
+                    // Por eso, se debe asignar el valor de la string de retorno en 0
+                    // Ya que el número es 0.x y su parte entera es 0
+                    numBinario = "0";
+                }
                 while (numeroEntero >= 1)
                 {
                     int resto = numeroEntero % 2;
