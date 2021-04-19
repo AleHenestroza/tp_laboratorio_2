@@ -65,6 +65,9 @@ namespace MiCalculadora
         private void btnOperar_Click(object sender, EventArgs e)
         {
             double resultado = Operar(txtNumero1.Text, txtNumero2.Text, cmbOperador.Text);
+            // La consigna indicaba que en caso de una división por 0, se debía retornar double.MinValue,
+            // por lo que en caso de que se divida por 0, o el segundo campo quede vacío, el resultado
+            // va a ser -1.7976931348623157E+308
             this.lblResultado.Text = resultado.ToString();
         }
 
