@@ -119,11 +119,7 @@ namespace Entidades
             }
             else
             {
-                int numeroEntero = (int) numero;
-                if (numeroEntero < 0)
-                {
-                    numeroEntero = Math.Abs(numeroEntero);
-                }
+                int numeroEntero = (int) Math.Abs(numero);
                 while (numeroEntero >= 1)
                 {
                     int resto = numeroEntero % 2;
