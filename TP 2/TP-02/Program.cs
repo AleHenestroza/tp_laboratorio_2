@@ -72,6 +72,7 @@ namespace TP_02_2018
             // Muestro solo Camioneta
             Console.WriteLine(Taller.Listar(taller, Taller.ETipo.Camioneta));
             Console.WriteLine("<-------------PRESIONE UNA TECLA PARA SALIR------------->");
+
             Console.ReadKey();
         }
     }
