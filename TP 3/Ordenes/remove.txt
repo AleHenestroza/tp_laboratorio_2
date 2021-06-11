@@ -1,0 +1,2 @@
+Este archivo se puede eliminar.
+Su unico proposito es ser detectado por el repositorio git para que incluya la carpeta
