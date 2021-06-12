@@ -11,9 +11,9 @@ namespace Entidades.Productos.Materiales
     /// </summary>
     public enum EnumCostoMateriales
     {
-        ACERO = 25,
-        ALUMINIO = 40,
-        TITANIO = 60,
-        CARBONO = 80
+        ACERO = 90,
+        ALUMINIO = 130,
+        TITANIO = 180,
+        CARBONO = 235
     }
 }

@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmListadoOrdenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmListadoOrdenes.Designer.cs">
+      <DependentUpon>FrmListadoOrdenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrden.Designer.cs">
+      <DependentUpon>FrmOrden.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +66,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmListadoOrdenes.resx">
+      <DependentUpon>FrmListadoOrdenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrden.resx">
+      <DependentUpon>FrmOrden.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>

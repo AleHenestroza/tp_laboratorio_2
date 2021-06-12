@@ -105,7 +105,7 @@ namespace Entidades.Productos
             return this.Precio;
         }
 
-        public bool EsFabricable(List<int> rodadosValidos)
+        public bool EsFabricable(List<double> rodadosValidos)
         {
             if (rodadosValidos.Contains(this.RuedaDelantera.Rodado)
                 && rodadosValidos.Contains(this.RuedaTrasera.Rodado))
@@ -122,7 +122,7 @@ namespace Entidades.Productos
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("\n\n-----------------------------");
+            sb.AppendLine("\n\n----------------------------------------");
             sb.AppendLine(this.GetType().Name);
             sb.AppendFormat("Cuadro: {0}\n", this.cuadro.ToString());
             sb.AppendFormat("Rueda Delantera: {0}\n", this.ruedaDelantera.ToString());

@@ -8,7 +8,7 @@ namespace Entidades.Productos.Accesorios
 {
     public enum EnumCostoAccesorios
     {
-        CASCO = 850,
-        LUZ = 600
+        CASCO = 1050,
+        LUZ = 800
     }
 }

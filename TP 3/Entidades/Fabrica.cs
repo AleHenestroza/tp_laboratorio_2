@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -82,12 +83,13 @@ namespace Entidades
             for (int i = 0; i < listadoOrdenes.Count; i++)
             {
                 // CurrentDirectory retorna la ruta a {proyecto}\bin\debug\ donde {proyecto}
-                // es el proyecto que esté llamando a la función.
+                // es el proyecto en el cual se está llamando a esta función (por ejemplo,
+                // FrmPrincipal).
                 // De esa forma, debemos retroceder una vez para estar en \bin, otra vez para
                 // quedar en la ruta del proyecto y una última vez para quedar en la ruta de
-                // la solución.
+                // la solución, donde se creo una carpeta Ordenes para ir guardando los archivos.
                 string path = Environment.CurrentDirectory + "\\..\\..\\..\\Ordenes\\";
-                sw = new StreamWriter(path + (i+1) + ". Orden.txt");
+                sw = new StreamWriter(path + "Orden N" + (i+1) + ".txt");
                 sw.Write(listadoOrdenes[i].ToString());
                 sw.Close();
             }

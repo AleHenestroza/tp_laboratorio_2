@@ -17,7 +17,7 @@ namespace Entidades.Interfaces
         /// la producción del mismo.
         /// </summary>
         /// <returns>Bool es posible fabricar</returns>
-        bool EsFabricable(List<int> listaValida);
+        bool EsFabricable(List<double> listaValida);
         /// <summary>
         /// Retorna el costo del producto fabricable
         /// </summary>

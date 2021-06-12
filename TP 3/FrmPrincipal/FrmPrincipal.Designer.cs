@@ -57,6 +57,7 @@ namespace FrmPrincipal
             this.btnGenerarOrden.TabIndex = 1;
             this.btnGenerarOrden.Text = "Generar Orden";
             this.btnGenerarOrden.UseVisualStyleBackColor = false;
+            this.btnGenerarOrden.Click += new System.EventHandler(this.btnGenerarOrden_Click);
             // 
             // btnListarOrdenes
             // 
@@ -68,6 +69,7 @@ namespace FrmPrincipal
             this.btnListarOrdenes.TabIndex = 2;
             this.btnListarOrdenes.Text = "Listar Órdenes";
             this.btnListarOrdenes.UseVisualStyleBackColor = false;
+            this.btnListarOrdenes.Click += new System.EventHandler(this.btnListarOrdenes_Click);
             // 
             // btnImport
             // 
@@ -99,8 +101,9 @@ namespace FrmPrincipal
             this.btnPrint.Name = "btnPrint";
             this.btnPrint.Size = new System.Drawing.Size(517, 33);
             this.btnPrint.TabIndex = 5;
-            this.btnPrint.Text = "Imprimir Listado de Órdenes";
+            this.btnPrint.Text = "Guardar Listado a Archivos";
             this.btnPrint.UseVisualStyleBackColor = false;
+            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
             // 
             // FrmPrincipal
             // 

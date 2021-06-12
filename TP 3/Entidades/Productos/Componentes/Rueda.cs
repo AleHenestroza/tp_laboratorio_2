@@ -12,7 +12,7 @@ namespace Entidades.Productos.Componentes
     public class Rueda
     {
         private double precio;
-        private int rodado;
+        private double rodado;
 
         /// <summary>
         /// Constructor de Rueda
@@ -21,7 +21,7 @@ namespace Entidades.Productos.Componentes
         /// "configuración" en una Base de Datos)
         /// </summary>
         /// <param name="rodado"></param>
-        public Rueda(int rodado)
+        public Rueda(double rodado)
         {
             this.rodado = rodado;
             this.precio = rodado * 110.75;
@@ -44,7 +44,7 @@ namespace Entidades.Productos.Componentes
         /// <summary>
         /// Getter
         /// </summary>
-        public int Rodado
+        public double Rodado
         {
             get
             {

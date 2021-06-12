@@ -15,7 +15,7 @@ namespace Entidades.Productos
     /// <typeparam name="T">Material</typeparam>
     public class Playera<T> : Bicicleta<T> where T : Material, new()
     {
-        private static List<int> rodadosValidos = new List<int> { 20, 22, 24, 26, 27, 28 };
+        private static List<double> rodadosValidos = new List<double> { 20, 22, 24, 26, 27, 28 };
         private bool frenoContraPedal;
 
         /// <summary>

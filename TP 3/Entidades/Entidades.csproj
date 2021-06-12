@@ -46,6 +46,7 @@
     <Compile Include="Fabrica.cs" />
     <Compile Include="Interfaces\IFabricable.cs" />
     <Compile Include="Orden.cs" />
+    <Compile Include="ListOrdenSerializable.cs" />
     <Compile Include="Productos\Accesorios\Accesorio.cs" />
     <Compile Include="Productos\Accesorios\Casco.cs" />
     <Compile Include="Productos\Accesorios\EnumCostoAccesorios.cs" />

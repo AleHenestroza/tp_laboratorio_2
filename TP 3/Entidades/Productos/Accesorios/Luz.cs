@@ -30,7 +30,7 @@ namespace Entidades.Productos.Accesorios
             sb.Append(base.ToString());
             sb.AppendFormat("Color: {0}\n", this.color);
             sb.AppendFormat("Costo: ${0}\n", this.Costo);
-            sb.AppendLine("------------------------");
+            sb.AppendLine("----------------------------------------\n");
             return sb.ToString();
         }
     }

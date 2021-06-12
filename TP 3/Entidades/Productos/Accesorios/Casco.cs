@@ -8,19 +8,20 @@ namespace Entidades.Productos.Accesorios
 {
     public class Casco : Accesorio
     {
-        private double diametro;
+        private double talla;
 
-        public Casco(double diametro) 
+        public Casco(double talla) 
             : base("Casco", (double)EnumCostoAccesorios.CASCO)
         {
-            this.diametro = diametro;
+            this.talla = talla;
+            this.Costo = talla * 0.025 * (double)EnumCostoAccesorios.CASCO;
         }
 
-        public double Diametro
+        public double Talla
         {
             get
             {
-                return this.diametro;
+                return this.talla;
             }
         }
 
@@ -28,9 +29,9 @@ namespace Entidades.Productos.Accesorios
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.ToString());
-            sb.AppendFormat("Diámetro: {0}\n", this.diametro);
+            sb.AppendFormat("Diámetro: {0}\n", this.talla);
             sb.AppendFormat("Costo: ${0}\n", this.Costo);
-            sb.AppendLine("------------------------");
+            sb.AppendLine("----------------------------------------\n");
             return sb.ToString();
         }
     }

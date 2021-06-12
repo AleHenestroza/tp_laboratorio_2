@@ -26,6 +26,16 @@ namespace Entidades
         private DateTime fechaProduccion;
 
         /// <summary>
+        /// Constructor por defecto de la clase
+        /// </summary>
+        public Orden()
+        {
+            this.bicicletas = new List<IFabricable>();
+            this.accesorios = new List<Accesorio>();
+            this.fechaCreacion = DateTime.Now;
+            this.costo = 0;
+        }
+        /// <summary>
         /// Constructor de la Orden.
         /// Recibe la fecha estimada de producción. En caso de ser igual o
         /// anterior a la fecha en que se creó, lanza una excepción.
@@ -135,13 +145,19 @@ namespace Entidades
         /// <param name="color"></param>
         public void OrdenarAccesorios(int cantidadCasco, int cantidadLuz, double diametro, string color)
         {
-            for (int i = 0; i < cantidadCasco; i++)
+            if (cantidadCasco > 0 && diametro != 0)
             {
-                this.OrdenarAccesorio(diametro);
+                for (int i = 0; i < cantidadCasco; i++)
+                {
+                    this.OrdenarAccesorio(diametro);
+                }
             }
-            for (int i = 0; i < cantidadLuz; i++)
+            if (cantidadLuz > 0 && color != "")
             {
-                this.OrdenarAccesorio(color);
+                for (int i = 0; i < cantidadLuz; i++)
+                {
+                    this.OrdenarAccesorio(color);
+                }
             }
         }
 
@@ -231,21 +247,49 @@ namespace Entidades
             }
         }
 
+        public string FechaCrecion
+        {
+            get
+            {
+                return this.fechaCreacion.ToString("dddd, dd/MM/yyyy HH:mm:ss");
+            }
+        }
+
+        public string FechaProduccion
+        {
+            get
+            {
+                return this.fechaProduccion.ToString("dddd, dd/MM/yyyy HH:mm:ss");
+            }
+            set
+            {
+                try
+                {
+                    DateTime nuevaFecha = DateTime.Parse(value);
+                    this.fechaProduccion = nuevaFecha;
+                }
+                catch
+                {
+                    throw new FechaInvalidaException("La fecha introducida es inválida.");
+                }
+            }
+        }
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine("----------");
-            sb.AppendLine("BICICLETAS");
-            sb.AppendLine("----------");
+            sb.AppendLine("----------------------------------------");
+            sb.AppendLine("               BICICLETAS");
+            sb.AppendLine("----------------------------------------");
             sb.AppendLine(this.Bicicletas);
-            sb.AppendLine("----------");
-            sb.AppendLine("ACCESORIOS");
-            sb.AppendLine("----------");
+            sb.AppendLine("----------------------------------------");
+            sb.AppendLine("               ACCESORIOS");
+            sb.AppendLine("----------------------------------------");
             sb.AppendLine(this.Accesorios);
-            sb.AppendLine("----------");
-            sb.AppendLine("   COSTO  ");
-            sb.AppendLine("----------");
-            sb.AppendFormat("${0}", this.Costo);
+            sb.AppendLine("----------------------------------------");
+            sb.AppendLine("                 COSTO");
+            sb.AppendLine("----------------------------------------");
+            sb.AppendFormat("${0}\n\n", this.Costo);
             return sb.ToString();
         }
     }
