@@ -13,6 +13,7 @@ namespace Entidades.Productos
     /// Clase derivada Playera, hereda de Bicicleta
     /// </summary>
     /// <typeparam name="T">Material</typeparam>
+    [Serializable]
     public class Playera<T> : Bicicleta<T> where T : Material, new()
     {
         private static List<double> rodadosValidos = new List<double> { 20, 22, 24, 26, 27, 28 };

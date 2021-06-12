@@ -10,6 +10,7 @@ namespace Entidades.Productos.Materiales
     /// Clase FibraCarbono, derivada de Material.
     /// Debe implementar un constructor vacío
     /// </summary>
+    [Serializable]
     public class FibraCarbono : Material
     {
         /// <summary>

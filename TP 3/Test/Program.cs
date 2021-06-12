@@ -44,24 +44,22 @@ namespace Test
              * Console.WriteLine("COSTO DE LA ORDEN");
              * Console.WriteLine("$" + o.Costo);
             */
+            Fabrica.AgregarOrden(o);
+            Fabrica.AgregarOrden(o2);
 
-            ListOrdenSerializable a1 = new ListOrdenSerializable();
-            a1.ListadoOrdenes.Add(o);
-            a1.ListadoOrdenes.Add(o2);
+            Console.WriteLine(Fabrica.ListadoOrdenes.ListadoOrdenes.Count);
 
-            Stream fs;
-            BinaryFormatter ser;
+            Fabrica.ExportarBinario();
+            Fabrica.LimpiarOrdenes();
+            Console.WriteLine(Fabrica.ListadoOrdenes.ListadoOrdenes.Count);
 
-            fs = new FileStream(Environment.CurrentDirectory + "\\..\\..\\..\\Ordenes\\test.bin", FileMode.Create);
-            ser = new BinaryFormatter();
-            ser.Serialize(fs, a1);
-            fs.Close();
+            string path = Environment.CurrentDirectory + "\\..\\..\\..\\Ordenes\\ordenes.bin";
+            Fabrica.ImportarBinario(path);
+            Console.WriteLine(Fabrica.ListadoOrdenes.ListadoOrdenes.Count);
 
-            //Fabrica.AgregarOrden(o);
-            //Fabrica.AgregarOrden(o2);
-            //Fabrica.ImprimirArchivos();
+            Fabrica.ImprimirArchivos();
 
-            //Console.ReadKey();
+            Console.ReadKey();
         }
     }
 }

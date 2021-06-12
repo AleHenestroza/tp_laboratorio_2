@@ -9,6 +9,7 @@ namespace Entidades.Productos.Componentes
     /// <summary>
     /// Clase Rueda, componente de Bicicleta
     /// </summary>
+    [Serializable]
     public class Rueda
     {
         private double precio;

@@ -488,6 +488,7 @@ namespace FrmPrincipal
             this.Controls.Add(this.lblMountainBike);
             this.Controls.Add(this.lblBicicleta);
             this.Name = "FrmOrden";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nueva Orden";
             ((System.ComponentModel.ISupportInitialize)(this.numUDMountainBike)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numUDPlayera)).EndInit();

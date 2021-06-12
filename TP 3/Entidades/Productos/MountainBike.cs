@@ -13,6 +13,7 @@ namespace Entidades.Productos
     /// Clase derivada MountainBike, hereda de Bicicleta
     /// </summary>
     /// <typeparam name="T">Material</typeparam>
+    [Serializable]
     public class MountainBike<T> : Bicicleta<T> where T : Material, new()
     {
         private static List<double> rodadosValidos = new List<double> { 26, 27, 28 };

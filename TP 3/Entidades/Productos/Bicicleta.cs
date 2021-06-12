@@ -15,6 +15,7 @@ namespace Entidades.Productos
     /// Recibe un Material con un constructor vacío
     /// </summary>
     /// <typeparam name="T">Material</typeparam>
+    [Serializable]
     public abstract class Bicicleta<T> : IFabricable where T : Material, new()
     {
         private Rueda ruedaDelantera;

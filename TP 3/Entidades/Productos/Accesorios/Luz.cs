@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.Productos.Accesorios
 {
+    [Serializable]
     public class Luz : Accesorio
     {
         private string color;

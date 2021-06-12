@@ -61,7 +61,8 @@ namespace FrmPrincipal
             this.Controls.Add(this.rtbOrdenes);
             this.Controls.Add(this.btnSalir);
             this.Name = "FrmListadoOrdenes";
-            this.Text = "FrmListadoOrdenes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Listado de Órdenes";
             this.Load += new System.EventHandler(this.FrmListadoOrdenes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

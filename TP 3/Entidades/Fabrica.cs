@@ -10,23 +10,22 @@ namespace Entidades
 {
     public static class Fabrica
     {
-        private static List<Orden> listadoOrdenes;
+        private static ListOrdenSerializable listadoOrdenes;
         private static double stockAcero;
         private static double stockAluminio;
         private static double stockTitanio;
         private static double stockFibraCarbono;
-        private static StreamWriter sw;
 
         static Fabrica()
         {
-            listadoOrdenes = new List<Orden>();
             stockAcero = 0;
             stockAluminio = 0;
             stockTitanio = 0;
             stockFibraCarbono = 0;
+            listadoOrdenes = new ListOrdenSerializable();
         }
 
-        public static List<Orden> ListadoOrdenes
+        public static ListOrdenSerializable ListadoOrdenes
         {
             get
             {
@@ -61,6 +60,13 @@ namespace Entidades
                 return stockFibraCarbono;
             }
         }
+        public static int CantidadOrdenes
+        {
+            get
+            {
+                return ListadoOrdenes.ListadoOrdenes.Count;
+            }
+        }
 
         public static void ModificarStockMateriales(double cantAcero,
                                                     double cantAluminio,
@@ -73,26 +79,56 @@ namespace Entidades
             stockFibraCarbono += cantFibraCarbono;
         }
 
+        public static void ExportarBinario()
+        {
+            string path = Environment.CurrentDirectory + "\\..\\..\\..\\Ordenes\\ordenes.bin";
+            ExportarBinario(path);
+        }
+        public static void ExportarBinario(string path)
+        {
+            Stream fs;
+            BinaryFormatter ser;
+
+            fs = new FileStream(path, FileMode.Create);
+            ser = new BinaryFormatter();
+            ser.Serialize(fs, listadoOrdenes);
+            fs.Close();
+        }
+
+        public static void ExportarBinario(Stream fs)
+        {
+            BinaryFormatter ser;
+
+            ser = new BinaryFormatter();
+            ser.Serialize(fs, listadoOrdenes);
+            fs.Close();
+        }
+
+        public static void ImportarBinario(string path)
+        {
+            Stream fs;
+            BinaryFormatter ser;
+
+            fs = new FileStream(path, FileMode.Open);
+            ser = new BinaryFormatter();
+            listadoOrdenes = (ListOrdenSerializable)ser.Deserialize(fs);
+            fs.Close();
+
+        }
+
         public static void AgregarOrden(Orden orden)
         {
-            listadoOrdenes.Add(orden);
+            listadoOrdenes.AgregarOrden(orden);
+        }
+
+        public static void LimpiarOrdenes()
+        {
+            listadoOrdenes.ListadoOrdenes = new List<Orden>();
         }
 
         public static void ImprimirArchivos()
         {
-            for (int i = 0; i < listadoOrdenes.Count; i++)
-            {
-                // CurrentDirectory retorna la ruta a {proyecto}\bin\debug\ donde {proyecto}
-                // es el proyecto en el cual se está llamando a esta función (por ejemplo,
-                // FrmPrincipal).
-                // De esa forma, debemos retroceder una vez para estar en \bin, otra vez para
-                // quedar en la ruta del proyecto y una última vez para quedar en la ruta de
-                // la solución, donde se creo una carpeta Ordenes para ir guardando los archivos.
-                string path = Environment.CurrentDirectory + "\\..\\..\\..\\Ordenes\\";
-                sw = new StreamWriter(path + "Orden N" + (i+1) + ".txt");
-                sw.Write(listadoOrdenes[i].ToString());
-                sw.Close();
-            }
+            listadoOrdenes.ImprimirArchivos();
         }
 
     }

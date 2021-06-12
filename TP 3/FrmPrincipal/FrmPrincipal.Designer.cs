@@ -35,6 +35,7 @@ namespace FrmPrincipal
             this.btnImport = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
+            this.btnLimpiarOrdenes = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -81,6 +82,7 @@ namespace FrmPrincipal
             this.btnImport.TabIndex = 3;
             this.btnImport.Text = "Importar Listado de Órdenes";
             this.btnImport.UseVisualStyleBackColor = false;
+            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // btnExport
             // 
@@ -92,18 +94,31 @@ namespace FrmPrincipal
             this.btnExport.TabIndex = 4;
             this.btnExport.Text = "Exportar Listado de Órdenes";
             this.btnExport.UseVisualStyleBackColor = false;
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // btnPrint
             // 
             this.btnPrint.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(18, 215);
+            this.btnPrint.Location = new System.Drawing.Point(244, 215);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(517, 33);
+            this.btnPrint.Size = new System.Drawing.Size(291, 33);
             this.btnPrint.TabIndex = 5;
             this.btnPrint.Text = "Guardar Listado a Archivos";
             this.btnPrint.UseVisualStyleBackColor = false;
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
+            // 
+            // btnLimpiarOrdenes
+            // 
+            this.btnLimpiarOrdenes.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLimpiarOrdenes.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarOrdenes.Location = new System.Drawing.Point(18, 215);
+            this.btnLimpiarOrdenes.Name = "btnLimpiarOrdenes";
+            this.btnLimpiarOrdenes.Size = new System.Drawing.Size(163, 33);
+            this.btnLimpiarOrdenes.TabIndex = 6;
+            this.btnLimpiarOrdenes.Text = "Borrar Órdenes";
+            this.btnLimpiarOrdenes.UseVisualStyleBackColor = false;
+            this.btnLimpiarOrdenes.Click += new System.EventHandler(this.btnLimpiarOrdenes_Click);
             // 
             // FrmPrincipal
             // 
@@ -111,6 +126,7 @@ namespace FrmPrincipal
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(547, 281);
+            this.Controls.Add(this.btnLimpiarOrdenes);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.btnImport);
@@ -133,6 +149,7 @@ namespace FrmPrincipal
         private System.Windows.Forms.Button btnImport;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnPrint;
+        private System.Windows.Forms.Button btnLimpiarOrdenes;
     }
 }
 

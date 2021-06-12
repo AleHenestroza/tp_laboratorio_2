@@ -10,6 +10,7 @@ namespace Entidades.Productos.Componentes
     /// <summary>
     /// Clase Cuadro, componente de Bicicleta
     /// </summary>
+    [Serializable]
     public class Cuadro
     {
         private Material material;

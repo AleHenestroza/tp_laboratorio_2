@@ -12,6 +12,7 @@ namespace Entidades.Productos.Materiales
     /// vacío que llame al constructor con dos parámetros de esta
     /// clase, pasandole los argumentos como constantes.
     /// </summary>
+    [Serializable]
     public abstract class Material
     {
         private string nombre;

@@ -17,6 +17,7 @@ namespace Entidades
     /// Contiene una lista de bicicletas que se deben producir, la
     /// fecha de creación y la fecha estimada de finalización.
     /// </summary>
+    [Serializable]
     public class Orden
     {
         private List<IFabricable> bicicletas;

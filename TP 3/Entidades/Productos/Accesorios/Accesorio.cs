@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades.Productos.Accesorios
 {
+    [Serializable]
     public abstract class Accesorio
     {
         private string nombre;

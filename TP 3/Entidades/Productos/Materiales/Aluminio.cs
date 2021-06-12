@@ -10,6 +10,7 @@ namespace Entidades.Productos.Materiales
     /// Clase Aluminio, derivada de Material.
     /// Debe implementar un constructor vacío
     /// </summary>
+    [Serializable]
     public class Aluminio : Material
     {
         /// <summary>
