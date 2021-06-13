@@ -185,6 +185,11 @@ namespace FrmPrincipal
             }
         }
 
+        /// <summary>
+        /// Abre el formulario para editar el stock de materiales.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStock_Click(object sender, EventArgs e)
         {
             FrmAgregarStock frmAgregarStock = new FrmAgregarStock();

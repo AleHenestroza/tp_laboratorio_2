@@ -59,6 +59,18 @@ namespace Entidades
             }
         }
 
+        /// <summary>
+        /// Esta funcíon recibe por parámetro el tipo de bicicleta a crear 
+        /// (bool esMountainBike) y llama a la función apropiada para ordenar
+        /// bicicletas con el resto de los parámetros
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="cantidad"></param>
+        /// <param name="r1"></param>
+        /// <param name="r2"></param>
+        /// <param name="tamanioCuadro"></param>
+        /// <param name="caracteristicaBicicleta"></param>
+        /// <param name="esMountainBike"></param>
         public void OrdenarBicicletas<T>(
             int cantidad,
             Rueda r1,
