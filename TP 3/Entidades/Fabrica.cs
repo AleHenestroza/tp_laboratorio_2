@@ -8,6 +8,12 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
+    /// <summary>
+    /// La clase estática Fabrica contiene un listado de ordenes.
+    /// Es consumida por los formularios de la aplicación para generar nuevas
+    /// ordenes, guardar las ordenes a archivos, exportar el listado a binario
+    /// o importar un listado desde un archivo binario.
+    /// </summary>
     public static class Fabrica
     {
         private static ListOrdenSerializable listadoOrdenes;
@@ -77,6 +83,25 @@ namespace Entidades
             stockAluminio += cantAluminio;
             stockTitanio += cantTitanio;
             stockFibraCarbono += cantFibraCarbono;
+        }
+
+        public static void ModificarStockMaterial(double cantidad, string material)
+        {
+            switch (material)
+            {
+                case "Acero":
+                    stockAcero += cantidad;
+                    break;
+                case "Aluminio":
+                    stockAluminio += cantidad;
+                    break;
+                case "Titanio":
+                    stockTitanio += cantidad;
+                    break;
+                case "Fibra de Carbono":
+                    stockFibraCarbono += cantidad;
+                    break;
+            }
         }
 
         public static void ExportarBinario()

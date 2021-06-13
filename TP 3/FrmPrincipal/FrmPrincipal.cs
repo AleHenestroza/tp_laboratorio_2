@@ -28,10 +28,13 @@ namespace FrmPrincipal
         /// <param name="e"></param>
         private void btnGenerarOrden_Click(object sender, EventArgs e)
         {
-            Orden nuevaOrden = new Orden();
-            FrmOrden formOrden = new FrmOrden(nuevaOrden);
+            FrmOrden formOrden = new FrmOrden();
             formOrden.ShowDialog();
-            Fabrica.AgregarOrden(nuevaOrden);
+
+            if (formOrden.Orden != null)
+            {
+                Fabrica.AgregarOrden(formOrden.Orden);
+            }
             
             // Console.WriteLine(nuevaOrden.ToString());
         }
@@ -93,7 +96,7 @@ namespace FrmPrincipal
                     SaveFileDialog guardarArchivoDialog = new SaveFileDialog();
                     Stream fileStream;
 
-                    guardarArchivoDialog.Filter = "Archivos binarios (*.bin)|*.bin";
+                    guardarArchivoDialog.Filter = "Archivo binario (*.bin)|*.bin";
                     guardarArchivoDialog.FilterIndex = 2;
                     guardarArchivoDialog.RestoreDirectory = true;
 
@@ -141,8 +144,8 @@ namespace FrmPrincipal
                 OpenFileDialog abrirArchivoDialog = new OpenFileDialog();
                 //Stream fileStream;
 
-                abrirArchivoDialog.InitialDirectory = "c:\\";
-                abrirArchivoDialog.Filter = "Archivos binarios (*.bin)|*.bin";
+                //abrirArchivoDialog.InitialDirectory = "c:\\";
+                abrirArchivoDialog.Filter = "Archivo binario (*.bin)|*.bin";
                 abrirArchivoDialog.FilterIndex = 2;
                 abrirArchivoDialog.RestoreDirectory = true;
 
@@ -180,6 +183,12 @@ namespace FrmPrincipal
             {
                 ImportarArchivo();
             }
+        }
+
+        private void btnStock_Click(object sender, EventArgs e)
+        {
+            FrmAgregarStock frmAgregarStock = new FrmAgregarStock();
+            frmAgregarStock.Show();
         }
     }
 }

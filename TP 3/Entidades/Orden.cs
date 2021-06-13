@@ -59,6 +59,25 @@ namespace Entidades
             }
         }
 
+        public void OrdenarBicicletas<T>(
+            int cantidad,
+            Rueda r1,
+            Rueda r2,
+            double tamanioCuadro,
+            bool caracteristicaBicicleta,
+            bool esMountainBike)
+            where T : Material, new()
+        {
+            if (esMountainBike)
+            {
+                this.OrdenarBicicletasMountainBike<T>(cantidad, r1, r2, tamanioCuadro, caracteristicaBicicleta);
+            }
+            else
+            {
+                this.OrdenarBicicletasPlayeras<T>(cantidad, r1, r2, tamanioCuadro, caracteristicaBicicleta);
+            }
+        }
+
         /// <summary>
         /// Agrega a la lista multiples bicicletas playeras
         /// </summary>

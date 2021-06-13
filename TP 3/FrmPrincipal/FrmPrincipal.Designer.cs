@@ -36,6 +36,7 @@ namespace FrmPrincipal
             this.btnExport = new System.Windows.Forms.Button();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnLimpiarOrdenes = new System.Windows.Forms.Button();
+            this.btnStock = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -43,9 +44,9 @@ namespace FrmPrincipal
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitulo.Location = new System.Drawing.Point(12, 9);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(523, 36);
+            this.lblTitulo.Size = new System.Drawing.Size(523, 71);
             this.lblTitulo.TabIndex = 0;
-            this.lblTitulo.Text = "BikeFactory";
+            this.lblTitulo.Text = "Nombre Original para Fabrica de Bicicletas";
             this.lblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGenerarOrden
@@ -120,12 +121,25 @@ namespace FrmPrincipal
             this.btnLimpiarOrdenes.UseVisualStyleBackColor = false;
             this.btnLimpiarOrdenes.Click += new System.EventHandler(this.btnLimpiarOrdenes_Click);
             // 
+            // btnStock
+            // 
+            this.btnStock.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStock.Location = new System.Drawing.Point(18, 279);
+            this.btnStock.Name = "btnStock";
+            this.btnStock.Size = new System.Drawing.Size(163, 33);
+            this.btnStock.TabIndex = 7;
+            this.btnStock.Text = "Modificar Stock";
+            this.btnStock.UseVisualStyleBackColor = false;
+            this.btnStock.Click += new System.EventHandler(this.btnStock_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(547, 281);
+            this.ClientSize = new System.Drawing.Size(547, 324);
+            this.Controls.Add(this.btnStock);
             this.Controls.Add(this.btnLimpiarOrdenes);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnExport);
@@ -150,6 +164,7 @@ namespace FrmPrincipal
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnLimpiarOrdenes;
+        private System.Windows.Forms.Button btnStock;
     }
 }
 

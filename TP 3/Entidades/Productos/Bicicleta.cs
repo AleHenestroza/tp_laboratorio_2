@@ -100,6 +100,13 @@ namespace Entidades.Productos
                 this.precio = value;
             }
         }
+        public double MaterialNecesario
+        {
+            get
+            {
+                return this.Cuadro.Tamanio;
+            }
+        }
 
         public double CalcularCosto()
         {

@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmAgregarStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarStock.Designer.cs">
+      <DependentUpon>FrmAgregarStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmListadoOrdenes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmAgregarStock.resx">
+      <DependentUpon>FrmAgregarStock.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmListadoOrdenes.resx">
       <DependentUpon>FrmListadoOrdenes.cs</DependentUpon>
     </EmbeddedResource>
