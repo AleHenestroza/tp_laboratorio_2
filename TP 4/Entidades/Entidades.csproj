@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C7F1BEB1-DAC0-4B24-9121-59930E6C065F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Datos\Costos.cs" />
+    <Compile Include="Datos\Stock.cs" />
+    <Compile Include="Excepciones\CamposInvalidosException.cs" />
+    <Compile Include="Excepciones\RuedaIncompatibleException.cs" />
+    <Compile Include="Excepciones\StockInsuficienteException.cs" />
+    <Compile Include="Fabrica.cs" />
+    <Compile Include="Orden\ListOrden.cs" />
+    <Compile Include="Orden\Orden.cs" />
+    <Compile Include="Productos\Accesorios\Accesorio.cs" />
+    <Compile Include="Productos\Accesorios\Casco.cs" />
+    <Compile Include="Productos\Accesorios\Luz.cs" />
+    <Compile Include="Productos\Bicicletas\Bicicleta.cs" />
+    <Compile Include="Productos\Bicicletas\MountainBike.cs" />
+    <Compile Include="Productos\Bicicletas\Playera.cs" />
+    <Compile Include="Productos\Componentes\Cuadro.cs" />
+    <Compile Include="Productos\Componentes\Rueda.cs" />
+    <Compile Include="Productos\Materiales\Acero.cs" />
+    <Compile Include="Productos\Materiales\Aluminio.cs" />
+    <Compile Include="Productos\Materiales\FibraCarbono.cs" />
+    <Compile Include="Productos\Materiales\Material.cs" />
+    <Compile Include="Productos\Materiales\Titanio.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAO\DAO.csproj">
+      <Project>{5d0c04a7-3a01-4cd1-9a7f-618920f95cfb}</Project>
+      <Name>DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{02e6d42d-698c-4f15-9914-11539d24b21b}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
