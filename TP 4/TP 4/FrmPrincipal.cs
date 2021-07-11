@@ -51,7 +51,7 @@ namespace TP_4
         {
             if (MessageBox.Show("¿Está seguro que desea salir?", "SI/NO", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                Environment.Exit(Environment.ExitCode); // Cierra todos los threads que estén corriendo.
+                 this.Close();
             }
         }
 
@@ -171,6 +171,11 @@ namespace TP_4
         private void btnListar_Click(object sender, EventArgs e)
         {
             this.MostrarForm(new FrmListarOrdenes());
+        }
+
+        private void btnImportDB_Click(object sender, EventArgs e)
+        {
+            Fabrica.ImportarOrdenesDB();
         }
     }
 }

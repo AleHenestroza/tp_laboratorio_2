@@ -30,6 +30,7 @@ namespace TP_4
         private void InitializeComponent()
         {
             this.grpMenu = new System.Windows.Forms.GroupBox();
+            this.btnImportDB = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -40,7 +41,6 @@ namespace TP_4
             this.btnOrden = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
             this.pnlContenido = new System.Windows.Forms.Panel();
-            this.btnImportDB = new System.Windows.Forms.Button();
             this.grpMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,17 @@ namespace TP_4
             this.grpMenu.TabIndex = 0;
             this.grpMenu.TabStop = false;
             this.grpMenu.Text = "Fábrica de Bicicletas";
+            // 
+            // btnImportDB
+            // 
+            this.btnImportDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImportDB.Location = new System.Drawing.Point(6, 340);
+            this.btnImportDB.Name = "btnImportDB";
+            this.btnImportDB.Size = new System.Drawing.Size(224, 32);
+            this.btnImportDB.TabIndex = 9;
+            this.btnImportDB.Text = "Importar desde DB";
+            this.btnImportDB.UseVisualStyleBackColor = true;
+            this.btnImportDB.Click += new System.EventHandler(this.btnImportDB_Click);
             // 
             // btnExit
             // 
@@ -169,16 +180,6 @@ namespace TP_4
             this.pnlContenido.Name = "pnlContenido";
             this.pnlContenido.Size = new System.Drawing.Size(1100, 612);
             this.pnlContenido.TabIndex = 1;
-            // 
-            // btnImportDB
-            // 
-            this.btnImportDB.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnImportDB.Location = new System.Drawing.Point(6, 340);
-            this.btnImportDB.Name = "btnImportDB";
-            this.btnImportDB.Size = new System.Drawing.Size(224, 32);
-            this.btnImportDB.TabIndex = 9;
-            this.btnImportDB.Text = "Importar desde DB";
-            this.btnImportDB.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 

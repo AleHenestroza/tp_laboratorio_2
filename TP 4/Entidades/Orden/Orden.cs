@@ -10,8 +10,8 @@ using Entidades.Productos.Componentes;
 using Entidades.Productos.Materiales;
 using Entidades.Productos.Accesorios;
 using Entidades.Productos.Bicicletas;
-using DAO.Orden;
-using DAO.Accesorios;
+using Entidades.DAO.Orden;
+using Entidades.DAO.Accesorios;
 
 namespace Entidades.Orden
 {
@@ -40,10 +40,10 @@ namespace Entidades.Orden
         #region CONSTRUCTORES
         public Orden()
         {
-            this.id = GetLastOrdenId() + 1;
         }
-        public Orden(IBicicleta bicicletaMB, int cantBicicletaMB, IBicicleta bicicletaP, int cantBicicletaP, IFabricable casco, int cantCasco, IFabricable luz, int cantLuz) : this()
+        public Orden(int id, IBicicleta bicicletaMB, int cantBicicletaMB, IBicicleta bicicletaP, int cantBicicletaP, IFabricable casco, int cantCasco, IFabricable luz, int cantLuz)
         {
+            this.id = id;
             this.bicicletaMB = bicicletaMB;
             this.cantBicicletaMB = cantBicicletaMB;
             this.bicicletaP = bicicletaP;
@@ -204,6 +204,7 @@ namespace Entidades.Orden
             bool tieneCasco = this.casco != null;
             bool tieneLuz = this.luz != null;
             ordenDAO.InsertOrden(costo, tieneMB, tieneP, tieneCasco, tieneLuz);
+            this.Id = ordenDAO.GetLastOrdenId(); // Tras insertar la orden, recupero el Id ingresado (autogenerado por la DB)
             this.OrdenCreada(this);
         }
         #endregion

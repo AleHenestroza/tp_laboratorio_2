@@ -45,6 +45,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\Accesorios\AccesorioDAO.cs" />
+    <Compile Include="DAO\Accesorios\CascoDAO.cs" />
+    <Compile Include="DAO\Accesorios\LuzDAO.cs" />
+    <Compile Include="DAO\Bicicletas\BicicletaDAO.cs" />
+    <Compile Include="DAO\Bicicletas\MountainBikeDAO.cs" />
+    <Compile Include="DAO\Bicicletas\PlayeraDAO.cs" />
+    <Compile Include="DAO\DAO.cs" />
+    <Compile Include="DAO\Datos\CostosDAO.cs" />
+    <Compile Include="DAO\Datos\DatoDAO.cs" />
+    <Compile Include="DAO\Datos\StockDAO.cs" />
+    <Compile Include="DAO\Orden\OrdenDAO.cs" />
     <Compile Include="Datos\Costos.cs" />
     <Compile Include="Datos\Stock.cs" />
     <Compile Include="Excepciones\CamposInvalidosException.cs" />
@@ -69,10 +80,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{5d0c04a7-3a01-4cd1-9a7f-618920f95cfb}</Project>
-      <Name>DAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{02e6d42d-698c-4f15-9914-11539d24b21b}</Project>
       <Name>Interfaces</Name>

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace DAO.Datos
+namespace Entidades.DAO.Datos
 {
     public abstract class DatoDAO : DAO
     {

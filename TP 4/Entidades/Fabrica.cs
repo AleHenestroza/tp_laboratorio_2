@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Entidades.Orden;
 using Entidades.Datos;
 using Entidades.Excepciones;
+using Entidades.DAO.Orden;
 
 namespace Entidades
 {
@@ -20,10 +21,8 @@ namespace Entidades
         }
         public static ListOrden ListadoOrdenes
         {
-            get
-            {
-                return listadoOrdenes;
-            }
+            get { return listadoOrdenes; }
+            set { listadoOrdenes = value; }
         }
         public static int CantidadOrdenes
         {
@@ -66,6 +65,11 @@ namespace Entidades
             fs.Close();
 
         }
+        public static void ImportarOrdenesDB()
+        {
+            OrdenDAO ordenDAO = new OrdenDAO();
+            ListadoOrdenes = ordenDAO.SelectOrdenes();
+        }
         private static bool HaySuficienteMaterial(double cantidad, string material) 
         {
             switch (material)
@@ -95,7 +99,7 @@ namespace Entidades
                 case "Titanio":
                     Stock.CantTitanio += cantidad;
                     break;
-                case "FibraCarbono":
+                case "Fibra de Carbono":
                     Stock.CantCarbono += cantidad;
                     break;
                 default:

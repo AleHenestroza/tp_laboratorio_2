@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using DAO.Datos;
+using Entidades.DAO.Datos;
 
 namespace Entidades.Datos
 {
@@ -33,7 +33,6 @@ namespace Entidades.Datos
             {
                 throw new Exception("Error al obtener datos de la base.");
             }
-            stockDAO = null;
         }
 
         public static void UpdateStock()

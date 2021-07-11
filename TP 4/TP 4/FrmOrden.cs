@@ -16,8 +16,8 @@ using Entidades.Productos.Componentes;
 using Entidades.Excepciones;
 using Entidades.Orden;
 using Entidades;
-using DAO.Accesorios;
-using DAO.Bicicletas;
+using Entidades.DAO.Accesorios;
+using Entidades.DAO.Bicicletas;
 
 namespace TP_4
 {

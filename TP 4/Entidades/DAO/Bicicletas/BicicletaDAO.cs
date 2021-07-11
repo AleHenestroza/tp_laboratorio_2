@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entidades.Productos.Bicicletas;
+using Entidades.Productos.Materiales;
+using Entidades.Productos.Componentes;
+using Interfaces;
 
-namespace DAO.Bicicletas
+namespace Entidades.DAO.Bicicletas
 {
     public abstract class BicicletaDAO : DAO
     {
@@ -26,6 +30,58 @@ namespace DAO.Bicicletas
                 this.EjecutarNonQuery();
             }
         }
+
+        protected List<IBicicleta> SelectBicicletas(int ordenId, string tabla)
+        {
+            List<IBicicleta> bicicletas = new List<IBicicleta>();
+
+            string selectStr = "SELECT * FROM " + tabla + " WHERE ordenId=@ordenId";
+            this.cmd.CommandText = selectStr;
+            this.cmd.Parameters.AddWithValue("@ordenId", ordenId);
+
+            try
+            {
+                this.con.Open();
+                this.reader = this.cmd.ExecuteReader();
+
+                while (this.reader.Read())
+                {
+                    IBicicleta bicicleta = this.RecuperarBicicleta();
+                    bicicletas.Add(bicicleta);
+                }
+                this.reader.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                this.con.Close();
+                this.cmd.Parameters.Clear();
+                this.cmd.CommandText = null;
+            }
+
+            return bicicletas;
+        }
+        /// <summary>
+        /// Elimina las bicicletas de una orden
+        /// </summary>
+        /// <param name="ordenId"></param>
+        /// <param name="tabla"></param>
+        protected void DeleteBicicletas(int ordenId, string tabla)
+        {
+            string deleteStr = "DELETE FROM " + tabla + " WHERE ordenId=@ordenId";
+            this.cmd.CommandText = deleteStr;
+            this.cmd.Parameters.AddWithValue("@ordenId", ordenId);
+
+            this.EjecutarNonQuery();
+        }
+        /// <summary>
+        /// Tras hacer el SELECT de bicicletas, crea un objeto bicicleta en base a los parámetros recueprados
+        /// </summary>
+        /// <returns></returns>
+        protected abstract IBicicleta RecuperarBicicleta();
 
         protected Dictionary<string, string> SelectBicicletas(int ordenId, string tabla, string tieneCaracteristica)
         {

@@ -38,6 +38,7 @@ namespace TP_4
             Stock.CantTitanio += (double)this.numTitanio.Value;
             Stock.CantCarbono += (double)this.numCarbono.Value;
             Stock.UpdateStock();
+
             this.ActualizarStock();
         }
     }

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DAO.Datos;
+using Entidades.DAO.Datos;
 using Entidades.Orden;
 using Entidades.Productos.Bicicletas;
 using Entidades.Productos.Componentes;
 using Entidades.Productos.Materiales;
 using Entidades.Productos.Accesorios;
-using DAO.Orden;
+using Entidades.DAO.Orden;
 
 namespace Test
 {
@@ -40,7 +40,8 @@ namespace Test
             //data.Add("Hola", 123);
             //Console.WriteLine(data.Keys.First());
 
-            Console.WriteLine(Orden.GetLastOrdenId());
+            Console.WriteLine(bool.Parse("1"));
+            Console.WriteLine(bool.Parse("0"));
 
             Console.ReadKey();
         }

@@ -34,6 +34,7 @@ namespace TP_4
             this.listOrdenes = new System.Windows.Forms.ListBox();
             this.rtbOrden = new System.Windows.Forms.RichTextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnDeleteOrden = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitListado)).BeginInit();
             this.splitListado.Panel1.SuspendLayout();
             this.splitListado.Panel2.SuspendLayout();
@@ -99,11 +100,24 @@ namespace TP_4
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // btnDeleteOrden
+            // 
+            this.btnDeleteOrden.Enabled = false;
+            this.btnDeleteOrden.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteOrden.Location = new System.Drawing.Point(659, 525);
+            this.btnDeleteOrden.Name = "btnDeleteOrden";
+            this.btnDeleteOrden.Size = new System.Drawing.Size(223, 45);
+            this.btnDeleteOrden.TabIndex = 3;
+            this.btnDeleteOrden.Text = "Eliminar Seleccionada";
+            this.btnDeleteOrden.UseVisualStyleBackColor = true;
+            this.btnDeleteOrden.Click += new System.EventHandler(this.btnDeleteOrden_Click);
+            // 
             // FrmListarOrdenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1084, 573);
+            this.Controls.Add(this.btnDeleteOrden);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.splitListado);
             this.Controls.Add(this.lblTitulo);
@@ -125,5 +139,6 @@ namespace TP_4
         private System.Windows.Forms.RichTextBox rtbOrden;
         private System.Windows.Forms.ListBox listOrdenes;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnDeleteOrden;
     }
 }

@@ -50,10 +50,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{5d0c04a7-3a01-4cd1-9a7f-618920f95cfb}</Project>
-      <Name>DAO</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{c7f1beb1-dac0-4b24-9121-59930e6c065f}</Project>
       <Name>Entidades</Name>

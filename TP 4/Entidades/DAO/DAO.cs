@@ -5,17 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace DAO
+namespace Entidades.DAO
 {
     public abstract class DAO
     {
         protected SqlConnection con;
         protected SqlCommand cmd;
         protected SqlDataReader reader;
+        private const string CONNECTION_STR = "Data Source=.;Initial Catalog=TP4_Henestroza_Alejandro;Integrated Security=True";
 
         public DAO()
         {
-            this.con = new SqlConnection(DBSettings.CONNECTION_STR);
+            this.con = new SqlConnection(CONNECTION_STR);
             this.cmd = new SqlCommand();
             this.cmd.CommandType = System.Data.CommandType.Text;
             this.cmd.Connection = this.con;
