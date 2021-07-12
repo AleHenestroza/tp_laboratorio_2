@@ -20,7 +20,10 @@ namespace Entidades.Datos
         {
             GetStock();
         }
-
+        #region MÉTODOS
+        /// <summary>
+        /// Recupera los datos de Stock desde la Base de Datos
+        /// </summary>
         private static void GetStock() 
         {
             stockDAO = new StockDAO();
@@ -34,13 +37,17 @@ namespace Entidades.Datos
                 throw new Exception("Error al obtener datos de la base.");
             }
         }
-
+        /// <summary>
+        /// Crea un hilo para el Update en la Base de Datos
+        /// </summary>
         public static void UpdateStock()
         {
             Thread hiloUpdate = new Thread(EnviarDatosADB);
             hiloUpdate.Start();
         }
-
+        /// <summary>
+        /// Actualiza los datos de Stock en la BD con el estado de la clase Stock
+        /// </summary>
         private static void EnviarDatosADB()
         {
             stockDAO = new StockDAO();
@@ -52,10 +59,12 @@ namespace Entidades.Datos
             stockDAO.UpdateStock(valores);
             stockDAO = null;
         }
-
+        #endregion
+        #region PROPIEDADES
         public static double CantAcero { get => cantAcero; set => cantAcero = value; }
         public static double CantAluminio { get => cantAluminio; set => cantAluminio = value; }
         public static double CantTitanio { get => cantTitanio; set => cantTitanio = value; }
         public static double CantCarbono { get => cantCarbono; set => cantCarbono = value; }
+        #endregion
     }
 }

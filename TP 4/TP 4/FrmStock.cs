@@ -17,7 +17,9 @@ namespace TP_4
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Asigna los valores del Stock a los RichTextBox del formulario
+        /// </summary>
         private void ActualizarStock()
         {
             this.rtbStockAcero.Text = Stock.CantAcero.ToString();
@@ -25,12 +27,20 @@ namespace TP_4
             this.rtbStockTitanio.Text = Stock.CantTitanio.ToString();
             this.rtbStockCarbono.Text = Stock.CantCarbono.ToString();
         }
-
+        /// <summary>
+        /// Al cargar el formulario, debe cargar los valores del Stock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmStock_Load(object sender, EventArgs e)
         {
             this.ActualizarStock();
         }
-
+        /// <summary>
+        /// Modifica el Stock en la clase estática y llama al método Update para modificarlos en la BD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             Stock.CantAcero += (double)this.numAcero.Value;

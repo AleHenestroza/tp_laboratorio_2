@@ -15,6 +15,9 @@ namespace TP_4
 {
     public partial class FrmPrincipal : Form
     {
+        /// <summary>
+        /// Constructor del formulario. Agrega los manejadores de eventos a los botones
+        /// </summary>
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -29,24 +32,39 @@ namespace TP_4
             this.btnListar.Click += btnListar_Click;
             this.btnHome.Click += btnHome_Click;
         }
-
+        /// <summary>
+        /// Muestra página principal (NO HAY NINGUNA)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.MostrarForm(new FrmHome());
         }
-
+        /// <summary>
+        /// Quita el formulario cargado en el panel
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void LimpiarPanel(object sender, EventArgs e)
         {
             this.pnlContenido.Controls.Clear();
         }
-
+        /// <summary>
+        /// Muestra un formulario en el panel
+        /// </summary>
+        /// <param name="form"></param>
         private void MostrarForm(Form form)
         {
             form.MdiParent = this;
             this.pnlContenido.Controls.Add(form);
             form.Show();
         }
-
+        /// <summary>
+        /// Cierra la aplicación
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExit_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("¿Está seguro que desea salir?", "SI/NO", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -54,22 +72,38 @@ namespace TP_4
                  this.Close();
             }
         }
-
+        /// <summary>
+        /// Muestra el formulario de Stock
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnStock_Click(object sender, EventArgs e)
         {
             this.MostrarForm(new FrmStock());
         }
-
+        /// <summary>
+        /// Muestra el formulario de Editar Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSettings_Click(object sender, EventArgs e)
         {
             this.MostrarForm(new FrmDatos());
         }
-
+        /// <summary>
+        /// Muestra el formulario de Generar Orden
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOrden_Click(object sender, EventArgs e)
         {
             this.MostrarForm(new FrmOrden());
         }
-
+        /// <summary>
+        /// Exporta las ordenes a binario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnExport_Click(object sender, EventArgs e)
         {
             if (!(Fabrica.CantidadOrdenes > 0))
@@ -102,7 +136,11 @@ namespace TP_4
                 }
             }
         }
-
+        /// <summary>
+        /// Importa las ordenes de binario. Si ya hay ordenes cargadas, pide confirmar
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImport_Click(object sender, EventArgs e)
         {
             if (Fabrica.CantidadOrdenes > 0)
@@ -119,7 +157,9 @@ namespace TP_4
                 ImportarArchivo();
             }
         }
-
+        /// <summary>
+        /// Importa las ordenes de binario
+        /// </summary>
         private static void ImportarArchivo()
         {
             try
@@ -143,7 +183,11 @@ namespace TP_4
                 MessageBox.Show("Hubo un error inesperado\n" + exc.Message);
             }
         }
-
+        /// <summary>
+        /// Guarda las ordenes a archivos de texto
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (Fabrica.CantidadOrdenes > 0)
@@ -156,7 +200,9 @@ namespace TP_4
                 MessageBox.Show("No hay órdenes creadas");
             }
         }
-
+        /// <summary>
+        /// Guarda las ordenes a archivos de texto
+        /// </summary>
         private static void GuardarArchivos()
         {
             FolderBrowserDialog folderBrowserDialog1 = new FolderBrowserDialog();
@@ -167,12 +213,20 @@ namespace TP_4
                 Fabrica.ImprimirArchivos(folderName);
             }
         }
-
+        /// <summary>
+        /// Muestra el formulario con el Listado de Ordenes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnListar_Click(object sender, EventArgs e)
         {
             this.MostrarForm(new FrmListarOrdenes());
         }
-
+        /// <summary>
+        /// Carga las ordenes desde la Base de Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnImportDB_Click(object sender, EventArgs e)
         {
             Fabrica.ImportarOrdenesDB();

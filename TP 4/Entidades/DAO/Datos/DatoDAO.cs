@@ -11,6 +11,13 @@ namespace Entidades.DAO.Datos
     {
         public DatoDAO() : base() { }
 
+        /// <summary>
+        /// Recupera los datos, devolviendo un diccionario con pares clave/valor para los campos de la clase (Costos o Stock)
+        /// </summary>
+        /// <param name="nombre"></param>
+        /// <param name="valor"></param>
+        /// <param name="tabla"></param>
+        /// <returns></returns>
         protected virtual Dictionary<string, string> SelectData(string nombre, string valor, string tabla)
         {
             Dictionary<string, string> data = new Dictionary<string, string>();

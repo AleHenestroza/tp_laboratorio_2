@@ -106,8 +106,6 @@ namespace Entidades.Productos.Bicicletas
             return this.Costo;
         }
 
-        public void Insert() { }
-
         public double CantMaterialNecesario()
         {
             return this.Cuadro.Tamanio;

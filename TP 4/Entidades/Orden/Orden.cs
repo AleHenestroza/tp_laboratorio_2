@@ -139,6 +139,10 @@ namespace Entidades.Orden
         }
         #endregion
         #region METODOS
+        /// <summary>
+        /// Retorna el costo de la orden
+        /// </summary>
+        /// <returns></returns>
         private double CalcularCosto()
         {
             double costo = 0;
@@ -160,10 +164,17 @@ namespace Entidades.Orden
             }
             return costo;
         }
+        /// <summary>
+        /// Si se modifican los campos de la orden, vuelve a calcular el costo de la misma
+        /// </summary>
         public void RecalcularCosto()
         {
             this.costo = this.CalcularCosto();
         }
+        /// <summary>
+        /// Devuelve una cadena de texto con todos los datos de la orden
+        /// </summary>
+        /// <returns></returns>
         public string MostrarOrden()
         {
             StringBuilder sb = new StringBuilder();
@@ -181,20 +192,17 @@ namespace Entidades.Orden
             sb.AppendFormat("${0}\n\n", this.Costo);
             return sb.ToString();
         }
-        public override string ToString()
-        {
-            return "Orden";
-        }
-        public static int GetLastOrdenId()
-        {
-            OrdenDAO ordenDAO = new OrdenDAO();
-            return ordenDAO.GetLastOrdenId();
-        }
+        /// <summary>
+        /// Crea un hilo para realizar el Insert en la base de datos
+        /// </summary>
         public void InsertOrden()
         {
             Thread hiloInsertar = new Thread(InsertarOrden);
             hiloInsertar.Start();
         }
+        /// <summary>
+        /// Guarda la orden en la base de datos
+        /// </summary>
         private void InsertarOrden()
         {
             OrdenDAO ordenDAO = new OrdenDAO();

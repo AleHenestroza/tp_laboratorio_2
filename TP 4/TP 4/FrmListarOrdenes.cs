@@ -23,7 +23,9 @@ namespace TP_4
             this.listadoOrdenes = Fabrica.ListadoOrdenes.ListadoOrdenes;
             MostrarOrdenes();
         }
-
+        /// <summary>
+        /// Muestra las ordenes en el listado
+        /// </summary>
         private void MostrarOrdenes()
         {
             this.listOrdenes.Items.Clear();
@@ -32,7 +34,11 @@ namespace TP_4
                 this.listOrdenes.Items.Add("Orden N° " + (i + 1));
             }
         }
-
+        /// <summary>
+        /// Al seleccionar una orden, se muestra su texto en el panel de la derecha
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listOrdenes_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = this.listOrdenes.SelectedIndex;
@@ -40,13 +46,21 @@ namespace TP_4
             this.rtbOrden.Text = this.ordenSeleccionada.MostrarOrden();
             this.btnDeleteOrden.Enabled = true;
         }
-
+        /// <summary>
+        /// Limpia el listado de ordenes (NO ELIMINA LAS ORDENES DE LA BASE DE DATOS, SOLO LAS QUE ESTAN CARGADAS EN LA APLICACION)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Fabrica.LimpiarOrdenes();
             MostrarOrdenes();
         }
-
+        /// <summary>
+        /// Elimina una orden del listado y de la Base de Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDeleteOrden_Click(object sender, EventArgs e)
         {
             if (ordenSeleccionada != null)

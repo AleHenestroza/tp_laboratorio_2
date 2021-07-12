@@ -1,1 +1,0 @@
-Este archivo se puede eliminar. Su único propósito es que el repositorio de Git levante la carpeta Ordenes

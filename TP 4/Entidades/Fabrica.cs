@@ -31,21 +31,10 @@ namespace Entidades
                 return ListadoOrdenes.ListadoOrdenes.Count;
             }
         }
-        public static void ExportarBinario()
-        {
-            string path = Environment.CurrentDirectory + "\\..\\..\\..\\Ordenes\\ordenes.bin";
-            ExportarBinario(path);
-        }
-        public static void ExportarBinario(string path)
-        {
-            Stream fs;
-            BinaryFormatter ser;
-
-            fs = new FileStream(path, FileMode.Create);
-            ser = new BinaryFormatter();
-            ser.Serialize(fs, listadoOrdenes);
-            fs.Close();
-        }
+        /// <summary>
+        /// Recibe un filestream por parámetro y exporta el ListOrden a un archivo binario en la ubicacion que se haya indicado en el filestream
+        /// </summary>
+        /// <param name="path"></param>
         public static void ExportarBinario(Stream fs)
         {
             BinaryFormatter ser;
@@ -54,6 +43,10 @@ namespace Entidades
             ser.Serialize(fs, listadoOrdenes);
             fs.Close();
         }
+        /// <summary>
+        /// Importa un archivo binario en el path indicado y recupera el ListOrden
+        /// </summary>
+        /// <param name="path"></param>
         public static void ImportarBinario(string path)
         {
             Stream fs;
@@ -65,11 +58,20 @@ namespace Entidades
             fs.Close();
 
         }
+        /// <summary>
+        /// Recupera un ListOrden a partir de las ordenes guardadas en la Base de Datos
+        /// </summary>
         public static void ImportarOrdenesDB()
         {
             OrdenDAO ordenDAO = new OrdenDAO();
             ListadoOrdenes = ordenDAO.SelectOrdenes();
         }
+        /// <summary>
+        /// Revisa que haya suficiente stock de un material
+        /// </summary>
+        /// <param name="cantidad"></param>
+        /// <param name="material"></param>
+        /// <returns></returns>
         private static bool HaySuficienteMaterial(double cantidad, string material) 
         {
             switch (material)
@@ -86,6 +88,11 @@ namespace Entidades
                     return false;
             }
         }
+        /// <summary>
+        /// Actualiza el Stock en la aplicación en base al material
+        /// </summary>
+        /// <param name="material"></param>
+        /// <param name="cantidad"></param>
         private static void SwitchActualizarStock(string material, double cantidad)
         {
             switch (material)
@@ -106,12 +113,23 @@ namespace Entidades
                     break;
             }
         }
+        /// <summary>
+        /// Actualiza el Stock en la clase estática Stock y luego actualiza los datos en la DB
+        /// </summary>
+        /// <param name="material1"></param>
+        /// <param name="material2"></param>
+        /// <param name="cantidad1"></param>
+        /// <param name="cantidad2"></param>
         private static void ActualizarStock(string material1, string material2, double cantidad1, double cantidad2)
         {
             if (material1 != "") SwitchActualizarStock(material1, cantidad1);
             if (material2 != "") SwitchActualizarStock(material2, cantidad2);
             Stock.UpdateStock();
         }
+        /// <summary>
+        /// Agrega una orden al ListOrden, si no hay stock, lanza una excepción. Actualiza el stock en la DB y guarda la orden en la DB
+        /// </summary>
+        /// <param name="orden"></param>
         public static void AgregarOrden(Orden.Orden orden)
         {
             string materialMB = "";
@@ -135,14 +153,17 @@ namespace Entidades
             ActualizarStock(materialMB, materialP, -cantidadMaterialMB, -cantidadMaterialP);
             listadoOrdenes.AgregarOrden(orden);
         }
+        /// <summary>
+        /// Vacía el ListOrden (lo iguala a null)
+        /// </summary>
         public static void LimpiarOrdenes()
         {
             listadoOrdenes.ListadoOrdenes = new List<Orden.Orden>();
         }
-        public static void ImprimirArchivos()
-        {
-            listadoOrdenes.ImprimirArchivos();
-        }
+        /// <summary>
+        /// Imprime las ordenes en archivos de texto
+        /// </summary>
+        /// <param name="path"></param>
         public static void ImprimirArchivos(string path)
         {
             listadoOrdenes.ImprimirArchivos(path);

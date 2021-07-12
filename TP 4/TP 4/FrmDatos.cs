@@ -17,7 +17,9 @@ namespace TP_4
         {
             InitializeComponent();
         }
-
+        /// <summary>
+        /// Muestra los datos de los costos en los RichTextBox del form
+        /// </summary>
         private void ActualizarDatos()
         {
             this.numAcero.Value = (decimal)Costos.CostoAcero;
@@ -28,12 +30,20 @@ namespace TP_4
             this.numCasco.Value = (decimal)Costos.CostoCasco;
             this.numLuz.Value = (decimal)Costos.CostoLuz;
         }
-
+        /// <summary>
+        /// Llama al método ActualizarDatos al cargar el formulario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmDatos_Load(object sender, EventArgs e)
         {
             this.ActualizarDatos();
         }
-
+        /// <summary>
+        /// Se modifican los costos en la clase estática y se realiza el Update en la Base de Datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             Costos.CostoAcero = (double)this.numAcero.Value;

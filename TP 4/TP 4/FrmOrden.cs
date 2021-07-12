@@ -18,6 +18,7 @@ using Entidades.Orden;
 using Entidades;
 using Entidades.DAO.Accesorios;
 using Entidades.DAO.Bicicletas;
+// Mirá la cantidad de using que tiene esta clase...
 
 namespace TP_4
 {
@@ -38,7 +39,11 @@ namespace TP_4
             this.luz = null;
             this.nuevaOrden = new Orden();
         }
-
+        /// <summary>
+        /// Si se tilda el checkbox, habilita los controles para crear MountainBikes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkMountainBike_CheckedChanged(object sender, EventArgs e)
         {
             if (!this.splitBicicletas.Visible)
@@ -48,6 +53,11 @@ namespace TP_4
             }
             this.splitBicicletas.Panel1.Enabled = !this.splitBicicletas.Panel1.Enabled;
         }
+        /// <summary>
+        /// Si se tilda el checkbox, habilita los controles para crear Playeras
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkPlayera_CheckedChanged(object sender, EventArgs e)
         {
             if (!this.splitBicicletas.Visible)
@@ -57,6 +67,11 @@ namespace TP_4
             }
             this.splitBicicletas.Panel2.Enabled = !this.splitBicicletas.Panel2.Enabled;
         }
+        /// <summary>
+        /// Si se tilda el checkbox, habilita los controles para crear Cascos
+        /// </summary> 
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkCasco_CheckedChanged(object sender, EventArgs e)
         {
             if (!this.splitAccesorios.Visible)
@@ -66,6 +81,11 @@ namespace TP_4
             }
             this.splitAccesorios.Panel1.Enabled = !this.splitAccesorios.Panel1.Enabled;
         }
+        /// <summary>
+        /// Si se tilda el checkbox, habilita los controles para crear Luces
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void chkLuz_CheckedChanged(object sender, EventArgs e)
         {
             if (!this.splitAccesorios.Visible)
@@ -75,6 +95,15 @@ namespace TP_4
             }
             this.splitAccesorios.Panel2.Enabled = !this.splitAccesorios.Panel2.Enabled;
         }
+        /// <summary>
+        /// Al enviar el formulario, se revisan los checkbox marcados, en base a eso
+        /// se valida que todos los campos que correspondan se hayan completado, se 
+        /// crea una nueva orden y se agrega al listado de ordenes. Se inserta la orden
+        /// en la Base de Datos y en base a los métodos suscriptos al evento OrdenCreada,
+        /// se insertan los productos en sus tablas de la BD
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -122,6 +151,10 @@ namespace TP_4
                 MessageBox.Show("Error\n" + ex.Message);
             }
         }
+        /// <summary>
+        /// Instancia una MountainBike con los campos del formulario y suscribe el método
+        /// InsertMountainBike al evento OrdenCreada
+        /// </summary>
         private void AgregarMountainBike()
         {
             try
@@ -160,6 +193,10 @@ namespace TP_4
                 throw new CamposInvalidosException("Quedaron campos incompletos en Mountain Bike.");
             }
         }
+        /// <summary>
+        /// Método manejador para insertar la MountainBike en la Base de Datos
+        /// </summary>
+        /// <param name="orden"></param>
         private void InsertMountainBike(Orden orden)
         {
             MountainBikeDAO mbDAO = new MountainBikeDAO();
@@ -171,6 +208,10 @@ namespace TP_4
                                      this.nuevaOrden.Id,
                                      this.nuevaOrden.CantidadMB);
         }
+        /// <summary>
+        /// Instancia una Playera con los campos del formulario y suscribe el método
+        /// InsertPlayera al evento OrdenCreada
+        /// </summary>
         private void AgregarPlayera()
         {
             try
@@ -210,6 +251,10 @@ namespace TP_4
                 throw new CamposInvalidosException("Quedaron campos incompletos en Playera.");
             }
         }
+        /// <summary>
+        /// Método manejador para insertar la Playera en la Base de Datos
+        /// </summary>
+        /// <param name="orden"></param>
         private void InsertPlayera(Orden orden)
         {
             PlayeraDAO pDAO = new PlayeraDAO();
@@ -221,6 +266,10 @@ namespace TP_4
                                this.nuevaOrden.Id,
                                this.nuevaOrden.CantidadP);
         }
+        /// <summary>
+        /// Instancia un Casco con los campos del formulario y suscribe el método
+        /// InsertCasco al evento OrdenCreada
+        /// </summary>
         private void AgregarCasco()
         {
             try
@@ -240,6 +289,10 @@ namespace TP_4
                 throw new CamposInvalidosException("Quedaron campos incompletos en Casco.");
             }
         }
+        /// <summary>
+        /// Método manejador para insertar el Casco en la Base de Datos
+        /// </summary>
+        /// <param name="orden"></param>
         private void InsertCasco(Orden orden)
         {
             CascoDAO cascoDAO = new CascoDAO();
@@ -248,6 +301,10 @@ namespace TP_4
                                   orden.Casco.CalcularCosto(),
                                   ((Casco)orden.Casco).Talla);
         }
+        /// <summary>
+        /// Instancia una Luz con los campos del formulario y suscribe el método
+        /// InsertLuz al evento OrdenCreada
+        /// </summary>
         private void AgregarLuz()
         {
             try
@@ -267,6 +324,10 @@ namespace TP_4
                 throw new CamposInvalidosException("Quedaron campos incompletos en Luz.");
             }
         }
+        /// <summary>
+        /// Método manejador para insertar la Luz en la Base de Datos
+        /// </summary>
+        /// <param name="orden"></param>
         private void InsertLuz(Orden orden)
         {
             LuzDAO luzDAO = new LuzDAO();
@@ -275,6 +336,11 @@ namespace TP_4
                              orden.Luz.CalcularCosto(),
                              ((Luz)orden.Luz).Color);
         }
+        /// <summary>
+        /// Muestra el material en Stock en un RichTextBox, dependiendo del material necesario
+        /// </summary>
+        /// <param name="material"></param>
+        /// <param name="rtbStock"></param>
         private void MostrarMaterialDisponible(string material, RichTextBox rtbStock)
         {
             switch (material)
@@ -296,14 +362,30 @@ namespace TP_4
                     break;
             }
         }
+        /// <summary>
+        /// Al seleccionar un material, muestra el stock del mismo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarMaterialDisponible(this.cmbMaterial.Text, this.rtbStockMaterial);
         }
+        /// <summary>
+        /// Al seleccionar un material, muestra el stock del mismo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbMaterialPlayera_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarMaterialDisponible(this.cmbMaterialPlayera.Text, this.rtbStockMaterialPlayera);
         }
+        /// <summary>
+        /// Muestra la cantidad de material necesario para generar la orden en un RichTextBox
+        /// </summary>
+        /// <param name="rtbMaterialNecesario"></param>
+        /// <param name="numCantidad"></param>
+        /// <param name="cmbCuadro"></param>
         private void MostrarMaterialNecesario(RichTextBox rtbMaterialNecesario, NumericUpDown numCantidad, ComboBox cmbCuadro)
         {
             double cantidad = (double)numCantidad.Value;
@@ -317,18 +399,38 @@ namespace TP_4
                 rtbMaterialNecesario.Text = "";
             }
         }
+        /// <summary>
+        /// Al modificar el tamaño del cuadro, modifica la cantidad de material y muestra el necesario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbCuadro_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarMaterialNecesario(this.rtbMaterialNecesario, this.numCantidad, this.cmbCuadro);
         }
+        /// <summary>
+        /// Al modificar el tamaño del cuadro, modifica la cantidad de material y muestra el necesario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbCuadroPlayera_SelectedIndexChanged(object sender, EventArgs e)
         {
             MostrarMaterialNecesario(this.rtbMaterialNecesarioPlayera, this.numCantidadPlayera, this.cmbCuadroPlayera);
         }
+        /// <summary>
+        /// Al modificar la cantidad de bicicletas, se modifica la cantidad de material necesario y se muestra en el RichTextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numCantidad_ValueChanged(object sender, EventArgs e)
         {
             MostrarMaterialNecesario(this.rtbMaterialNecesario, this.numCantidad, this.cmbCuadro);
         }
+        /// <summary>
+        /// Al modificar la cantidad de bicicletas, se modifica la cantidad de material necesario y se muestra en el RichTextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void numCantidadPlayera_ValueChanged(object sender, EventArgs e)
         {
             MostrarMaterialNecesario(this.rtbMaterialNecesarioPlayera, this.numCantidadPlayera, this.cmbCuadroPlayera);

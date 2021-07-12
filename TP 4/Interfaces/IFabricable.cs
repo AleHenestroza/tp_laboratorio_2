@@ -20,9 +20,5 @@ namespace Interfaces
         /// </summary>
         /// <returns>Double costo del producto</returns>
         double CalcularCosto();
-        /// <summary>
-        /// Inserta el IFabricable en la Base de Datos
-        /// </summary>
-        void Insert();
     }
 }

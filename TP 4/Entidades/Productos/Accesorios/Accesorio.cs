@@ -38,7 +38,6 @@ namespace Entidades.Productos.Accesorios
         }
 
         public abstract double CalcularCosto();
-        public void Insert() { }
 
         public override string ToString()
         {

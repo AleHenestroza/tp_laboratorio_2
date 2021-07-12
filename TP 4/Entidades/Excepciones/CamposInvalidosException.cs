@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Entidades.Excepciones
 {
+    /// <summary>
+    /// Excepción manejadora de campos inválidos en formulario de GenerarOrden
+    /// </summary>
     public class CamposInvalidosException : Exception
     {
         public CamposInvalidosException()

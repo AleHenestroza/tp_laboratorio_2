@@ -7,7 +7,7 @@ using Entidades.Productos.Accesorios;
 
 namespace Entidades.DAO.Accesorios
 {
-    public class CascoDAO : AccesorioDAO
+    public class CascoDAO : DAO
     {
         public CascoDAO() : base() { }
 

@@ -23,7 +23,10 @@ namespace Entidades.Datos
         {
             GetCostos();
         }
-
+        #region MÉTODOS
+        /// <summary>
+        /// Recupera los datos de la Base de Datos, asignándolos a los atributos de la clase estática
+        /// </summary>
         private static void GetCostos()
         {
             costosDAO = new CostosDAO();
@@ -41,13 +44,17 @@ namespace Entidades.Datos
             }
             costosDAO = null;
         }
-
+        /// <summary>
+        /// Carga un nuevo hilo para actualziar los costos
+        /// </summary>
         public static void UpdateCostos()
         {
             Thread hiloUpdate = new Thread(EnviarDatosADB);
             hiloUpdate.Start();
         }
-
+        /// <summary>
+        /// Guarda los atributos de la clase en la Base de Datos
+        /// </summary>
         private static void EnviarDatosADB()
         {
             costosDAO = new CostosDAO();
@@ -62,7 +69,8 @@ namespace Entidades.Datos
             costosDAO.UpdateCostos(valores);
             costosDAO = null;
         }
-
+        #endregion
+        #region PROPIEDADES
         public static double CostoAcero { get => costoAcero; set => costoAcero = value; }
         public static double CostoAluminio { get => costoAluminio; set => costoAluminio = value; }
         public static double CostoTitanio { get => costoTitanio; set => costoTitanio = value; }
@@ -70,6 +78,7 @@ namespace Entidades.Datos
         public static double CostoRueda { get => costoRueda; set => costoRueda = value; }
         public static double CostoCasco { get => costoCasco; set => costoCasco = value; }
         public static double CostoLuz { get => costoLuz; set => costoLuz = value; }
+        #endregion
 
     }
 }

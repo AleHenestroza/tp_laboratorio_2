@@ -7,6 +7,9 @@ using System.Data.SqlClient;
 
 namespace Entidades.DAO
 {
+    /// <summary>
+    /// Clase base para todas las clases DAO, tiene una conexión, un comando y un reader y establece la string de conexión a la Base de Datos
+    /// </summary>
     public abstract class DAO
     {
         protected SqlConnection con;
@@ -22,6 +25,9 @@ namespace Entidades.DAO
             this.cmd.Connection = this.con;
         }
 
+        /// <summary>
+        /// Método envolvente para ExecuteNonQuery que maneja posibles excepciones
+        /// </summary>
         protected void EjecutarNonQuery()
         {
             try

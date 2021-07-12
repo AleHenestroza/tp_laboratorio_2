@@ -14,16 +14,34 @@ namespace Entidades.DAO.Bicicletas
     {
         public PlayeraDAO() : base() { }
 
+        /// <summary>
+        /// Inserta una bicicleta, llamando al método InsertBicicletas con los parámetros para una Playera
+        /// </summary>
+        /// <param name="rodado"></param>
+        /// <param name="tamanioCuadro"></param>
+        /// <param name="material"></param>
+        /// <param name="costo"></param>
+        /// <param name="tieneFreno"></param>
+        /// <param name="ordenId"></param>
+        /// <param name="cantidad"></param>
         public void InsertPlayera(double rodado, double tamanioCuadro, string material, double costo, bool tieneFreno, int ordenId, int cantidad)
         {
             this.InsertBicicleta("Playeras", rodado, tamanioCuadro, material, costo, tieneFreno, ordenId, cantidad);
         }
 
+        /// <summary>
+        /// Llama al método DeleteBicicletas con los parámetros para Playera
+        /// </summary>
+        /// <param name="ordenId"></param>
         public void DeletePlayeras(int ordenId)
         {
             this.DeleteBicicletas(ordenId, "Playeras");
         }
 
+        /// <summary>
+        /// Parsea los datos recuperados de la Base de Datos, devolviendo una Playera
+        /// </summary>
+        /// <returns></returns>
         protected override IBicicleta RecuperarBicicleta()
         {
             double rodado = double.Parse(this.reader["rodado"].ToString());
@@ -49,7 +67,6 @@ namespace Entidades.DAO.Bicicletas
                     return null;
             }
         }
-
         public List<IBicicleta> SelectPlayeras(int ordenId)
         {
             return this.SelectBicicletas(ordenId, "Playeras");
